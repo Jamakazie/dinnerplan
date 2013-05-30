@@ -11,7 +11,7 @@
 	</thead>
 	<tbody>
 		{% for recipe in recipes %}
-			<tr class="view_recipe" id={{recipe.pk}}>
+			<tr>
 				<th>{{ recipe.title }}</th>
 				<th>{{ recipe.prep_time }}</th>
 				<th>{{ recipe.cook_time }}</th>

@@ -1,0 +1,16 @@
+{% extends 'calendar_template.html'%}
+{% block main %}
+<h3>Week Starting on {{date}}</h3>
+<div id="calendar_view">
+	{% for event in events %}
+	<div class="event span2">
+		<div class="event_date">
+			{{event.date|date:"l M d"}}
+		</div>
+		<div class="event_recipe">
+			{{event.recipe_id}}
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}

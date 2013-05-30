@@ -1,4 +1,4 @@
-{% extends 'calendar_template.html' %}
+{% extends 'template.html' %}
 {% block main %}
 Calendar!
 {% endblock %}

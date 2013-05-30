@@ -21,7 +21,6 @@
 				</ul>
 			</div>
 		</div>
-		<div class="clear"></div>
 		{% block nav %}
 		{% endblock %} 
 		<div id="main" class="container">

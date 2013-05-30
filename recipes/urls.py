@@ -6,4 +6,7 @@ urlpatterns = patterns('',
 	url(r'^$', views.recipe_index, name='recipe_index'),
 	url(r'^save$', views.recipe_save, name='recipe_save'),
 	url(r'^view$', views.recipe_view, name='recipe_view'),
+	url(r'^view/(.*)$', views.recipe_view_specific, name='recipe_view_specific'),
+	url(r'^commit$', views.recipe_commit, name='recipe_commit'),
+
 )
