@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/bootstrap.min.css" />
+		<link rel="Stylesheet" type="text/css" href="{{STATIC_URL}}css/core.css" />
+
+		<script type="text/javascript" src="{{STATIC_URL}}js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="{{STATIC_URL}}js/core.js"></script>
+
+	</head>
+
+	<body>
+		<div class="navbar" id='main-navbar'>
+			<div class="navbar-inner">
+				<a class="brand" href="/">Dinner Planner</a>
+				<ul class="nav">
+					<li><a href="/recipes">Recipes</a></li>
+					<li><a href="/calendar">Calendar</a></li>
+				</ul>
+			</div>
+		</div>
+		{% block nav %}
+		{% endblock %} 
+		<div id="main" class="container">
+			{% block main%}  
+			{% endblock %}
+		</div>
+	</body>
+
+</html>
+

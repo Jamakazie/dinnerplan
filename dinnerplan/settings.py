@@ -24,6 +24,8 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
+
+
 ALLOWED_HOSTS = []
 
 
@@ -36,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'main',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -51,6 +54,17 @@ ROOT_URLCONF = 'dinnerplan.urls'
 
 WSGI_APPLICATION = 'dinnerplan.wsgi.application'
 
+TEMPLATE_DIRS = (
+	BASE_DIR + '/templates',
+	BASE_DIR + '/recipes/templates',
+	BASE_DIR + '/Calendar/templates',
+)
+
+STATIC_ROOT = BASE_DIR + '/static/'
+
+STATICFILES_DIRS = (
+	BASE_DIR + '/templates/static/',
+)
 
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases

@@ -1,0 +1,47 @@
+{% extends 'recipe_template.html' %}
+{% block main  %}
+<h3>Save a recipe</h3>
+<form id="save_recipe" class="form-horizontal">
+	{% csrf_token %}
+	<div class="control-group">
+		<label class="control-label" for="title">Title</label>
+		<div class="controls">
+			<input type="text" name="title" id="title" placeholder="Title" />
+		</div>
+
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="prep_time">Prep Time</label>
+		<div class="controls">
+			<input type="text" name="prep_time" id="prep_time" placeholder="Prep Time" />
+		</div>
+
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="cook_time">Cook Time</label>
+		<div class="controls">
+			<input type="text" name="cook_time" id="cook_time" placeholder="Cook Time" />
+		</div>
+
+	</div>
+	<div id="ingredients">
+		<h4>Ingredients</h4>
+		<div class="btn" id="recipe_add_ingredient">Add Another Ingredient</div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Item</th>
+					<th>Quantity</th>
+				<tr>
+			<thead>
+			<tbody id="add_ingredient">
+				<tr>
+					<th><input type="text" name="item_name" id="item_name" placeholder="Item Name" /></th>
+					<th><input type="text" name="item_quantity" id="item_quantity" placeholder="Item Quantity" /></th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</form>
+{% endblock %}
