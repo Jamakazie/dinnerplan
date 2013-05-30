@@ -26,7 +26,7 @@
 	</div>
 	<div id="ingredients">
 		<h4>Ingredients</h4>
-		<div class="btn">Add Another Ingredient</div>
+		<div class="btn" id="recipe_add_ingredient">Add Another Ingredient</div>
 		<table class="table">
 			<thead>
 				<tr>
