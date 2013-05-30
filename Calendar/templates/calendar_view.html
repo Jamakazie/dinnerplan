@@ -1,6 +1,6 @@
 {% extends 'calendar_template.html'%}
 {% block main %}
-<h3>Week Starting on {{date}}</h3>
+<h3>Week Starting on {{events.0.date}}</h3>
 <div id="calendar_view">
 	{% for event in events %}
 	<div class="event span2">
