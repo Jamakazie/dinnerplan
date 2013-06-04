@@ -71,6 +71,7 @@ def calendar_ajax_grocerylist(request):
 			ingredients = json.loads(recipe.ingredients)
 			for ingredient in ingredients:
 				items.append(ingredient)
+		items = process_items(items)
 		items = sorted(items, key=lambda k: k)
 		return HttpResponse(json.dumps(items))
 	#except:
@@ -85,3 +86,22 @@ def name_to_id(name):
 def id_to_name(rid):
 	recipe = r.objects.filter(pk=rid)[0]
 	return recipe.title
+
+def process_items(items):
+	temp = {}
+	for item in items:
+		for key, value in item.items():
+			if key in temp:
+				temp[key] = combine(temp[key], value)
+			else:
+				temp[key] = value
+	processed = []
+	for key, value in temp.items():
+		te = {}
+		te[key]=value
+		processed.append(te)
+	return processed
+
+def combine(arg1, arg2):
+	return "%s + %s" % (arg1, arg2)
+	
