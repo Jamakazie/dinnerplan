@@ -20,10 +20,10 @@ $(document).on('click', '#recipe_submit', function(){
 });
 
 
-$(document).on('click', '.view_recipe', function(){
-	id = $(this).attr('id');
-	window.location = "/recipes/view/" + id;
-});
+//$(document).on('click', '.view_recipe', function(){
+//	id = $(this).attr('id');
+//	window.location = "/recipes/view/" + id;
+//});
 
 $(document).on('click', '#calendar_submit', function(){
 	data = $('#date_recipe').serialize();

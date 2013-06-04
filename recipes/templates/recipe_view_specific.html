@@ -1,0 +1,26 @@
+{% extends 'recipe_template.html' %}
+{% block main %}
+<h1>{{recipe.title}}</h1>
+
+<div id="prep_time">Prep Time:   {{recipe.prep_time}}</div>
+<div id="cook_time">Cook Time:   {{recipe.cook_time}}</div>
+<div id="items">
+	<legend>Ingredients</legend>
+	<table class="table">
+		<thead>
+			<th>Ingredient</th>
+			<th>Quantity</th>
+		</thead>
+		<tbody>
+			{% for ingredient in ingredients %}			
+				{% for ingred, quant in ingredient.items %}
+					<tr>	
+						<td>{{ingred}}</td>
+						<td>{{quant}}</td>
+					</tr>
+				{% endfor %}
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}

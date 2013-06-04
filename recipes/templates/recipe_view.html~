@@ -11,11 +11,11 @@
 	</thead>
 	<tbody>
 		{% for recipe in recipes %}
-			<tr>
-				<th>{{ recipe.title }}</th>
-				<th>{{ recipe.prep_time }}</th>
-				<th>{{ recipe.cook_time }}</th>
-			</tr>
+				<tr class="view_recipe" >
+					<th><a href="/recipes/view/{{recipe.pk}}"><{{ recipe.title}}</a></th>
+					<th>{{ recipe.prep_time }}</th>
+					<th>{{ recipe.cook_time }}</th>
+				</tr>
 		{% endfor %}
 	</tbody>
 {% endblock %}

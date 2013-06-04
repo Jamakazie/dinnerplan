@@ -1,7 +1,14 @@
 {% extends 'calendar_template.html' %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/mobile.css"/>
+{% endblock %}
 {% block main %}
-Start Date: <input type="text" id="start_date" value="{{today|date:"m/d/Y"}}" />
-End Date: <input type="text" id="end_date" value="{{next_week|date:"m/d/Y"}}" />
+<div id="s_d">
+	Start Date: <input type="text" id="start_date" value="{{today|date:"m/d/Y"}}" />
+</div>
+<div id="e_d">
+	End Date: <input type="text" id="end_date" value="{{next_week|date:"m/d/Y"}}" />
+</div>
 <div class="btn" id="list_submit">Generate</div>
 <div id="grocery_list">
 	<table class="table">

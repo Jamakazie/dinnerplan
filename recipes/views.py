@@ -35,4 +35,8 @@ def recipe_commit(request):
 	return HttpResponse("Success");
 
 def recipe_view_specific(request, params):
-	return HttpResponse(params)
+	recipe = r.objects.get(pk=params)
+	context = {}
+	context['recipe'] = recipe
+	context['ingredients'] = json.loads(recipe.ingredients)
+	return render_to_response('recipe_view_specific.html', context, context_instance = RequestContext(request))

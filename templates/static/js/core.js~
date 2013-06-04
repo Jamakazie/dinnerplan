@@ -58,7 +58,7 @@ $(document).on('click', '#list_submit', function(){
 		data: 'start_date=' + start_date + '&end_date=' + end_date,
 		type: 'get',
 		success: function(resp){
-			$('#grocery_list_body').html()
+			$('#grocery_list_body').html('');
 			items = JSON.parse(resp);
 			for (var key in items){
 				for( var subkey in items[key]){
