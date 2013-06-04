@@ -105,16 +105,21 @@ def process_items(items):
 	return processed
 
 def combine(arg1, arg2):
-	arg1Char = re.sub(r'\d', '', str(arg1))
-	arg2Char = re.sub(r'\d', '', str(arg2))
+	arg1 = str(arg1)
+	arg2 = str(arg2)
+	arg1Char = re.sub(r'\d|\.|/', '', arg1)
+	arg2Char = re.sub(r'\d|\.|/', '', arg2)
 	if arg1Char == arg2Char:
 		arg1math = re.sub(r'\D', '', arg1)
 		arg2math = re.sub(r'\D', '', arg2)
-		if arg1.find('/') != -1 or arg2.find('/') != -1:
-			val1 = float(sum(Fraction(s) for s in arg1.split()))
-			val2 = float(sum(Fraction(s) for s in arg2.split()))
+		if arg1.find('/') != -1 or arg2.find('/') != -1 or arg1.find('.') != -1 or arg2.find('.') != -1:
+			frac1 = re.sub(r'[a-zA-z]', '', arg1)
+			frac2 = re.sub(r'[a-zA-Z]', '', arg2)
+			qualifier = re.sub(r'/|\.|\d', '', arg1)
+			val1 = float(sum(Fraction(s) for s in frac1.split()))
+			val2 = float(sum(Fraction(s) for s in frac2.split()))
 			total = val1 + val2
-			return total
+			return str(total) + qualifier
 		else:
 			total = int(float(arg1math) + float(arg2math))
 			return str(total) + arg1Char
