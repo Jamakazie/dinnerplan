@@ -1,3 +1,5 @@
+from fractions import Fraction
+import re
 import json
 from django.shortcuts import render, render_to_response
 import datetime
@@ -103,5 +105,18 @@ def process_items(items):
 	return processed
 
 def combine(arg1, arg2):
+	arg1Char = re.sub(r'\d', '', arg1)
+	arg2Char = re.sub(r'\d', '', arg2)
+	if arg1Char == arg2Char:
+		arg1math = re.sub(r'\D', '', arg1)
+		arg2math = re.sub(r'\D', '', arg2)
+		if arg1.find('/') != -1:
+			val1 = float(sum(Fraction(s) for s in arg1.split()))
+			val2 = float(sum(Fraction(s) for s in arg2.split()))
+			total = val1 + val2
+			return total
+		else:
+			total = int(float(arg1math) + float(arg2math))
+			return str(total) + arg1Char
 	return "%s + %s" % (arg1, arg2)
 	
