@@ -71,6 +71,10 @@ $(document).on('click', '#list_submit', function(){
 	});
 });
 
+$(document).on('click', '.sortable', function(){
+	$(this).toggleClass('strikeout')
+});
+
 $(document).ready(function(){
 	$('#calendar_date').datepicker();
 	$('#start_date').datepicker();
