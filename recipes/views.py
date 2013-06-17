@@ -21,7 +21,7 @@ def recipe_view(request):
 
 def recipe_commit(request):
 	
-	title = request.POST['title']
+	title = request.POST['title'].strip()
 	prep_time = request.POST['prep_time']
 	cook_time = request.POST['cook_time']
 	item_names = request.POST.getlist('item_name')
