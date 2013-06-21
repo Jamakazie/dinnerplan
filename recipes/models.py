@@ -6,3 +6,4 @@ class recipe(models.Model):
 	prep_time = models.CharField(max_length = 50)
 	cook_time = models.CharField(max_length = 50)
 	ingredients = models.TextField()
+	url = models.TextField(null=True)
