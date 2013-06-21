@@ -40,3 +40,31 @@ def recipe_view_specific(request, params):
 	context['recipe'] = recipe
 	context['ingredients'] = json.loads(recipe.ingredients)
 	return render_to_response('recipe_view_specific.html', context, context_instance = RequestContext(request))
+
+def recipe_edit(request, params):
+	recipe = r.objects.get(pk=params)
+	context = {}
+	context['recipe'] = recipe
+	context['ingredients'] = json.loads(recipe.ingredients)
+	return render_to_response('recipe_edit.html', context, context_instance = RequestContext(request))
+
+def recipe_edit_commit(request):
+	title = request.POST['title'].strip()
+	r_id = request.POST['r_id']
+	prep_time = request.POST['prep_time']
+	cook_time = request.POST['cook_time']
+	url = request.POST['url']
+	item_names = request.POST.getlist('item_name')
+	item_quantites = request.POST.getlist('item_quantity')
+	items = []
+	for index, val in enumerate(item_names):
+		items.append({item_names[index] : item_quantites[index]})
+	
+	recipe = r.objects.get(pk=r_id)
+	recipe.title = title
+	recipe.prep_time = prep_time
+	recipe.cook_time = cook_time
+	recipe.ingredients = json.dumps(items)
+	recipe.url = url
+	recipe.save()
+	return HttpResponse("Success")

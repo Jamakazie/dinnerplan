@@ -6,7 +6,7 @@
 <div id="cook_time">Cook Time:   {{recipe.cook_time}}</div>
 <div id="items">
 	<legend>Ingredients</legend>
-	<table>
+	<table class="table">
 		<thead>
 			<th>Ingredient</th>
 			<th>Quantity</th>

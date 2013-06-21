@@ -18,7 +18,23 @@ $(document).on('click', '#recipe_submit', function(){
 		}
 	});
 });
-
+$(document).on('click', '#recipe_edit', function(){
+	data = $('#edit_recipe').serialize();
+	id = $('#r_id').val()
+	$.ajax({
+		url: '/recipes/commit/edit',
+		data: data,
+		type: 'post',
+		success: function(resp){
+			if(resp == "Success"){
+				window.location = '/recipes/view/' + id
+			}
+			else{
+				alert('something fucked up :[');
+			}
+		}
+	});
+});
 
 //$(document).on('click', '.view_recipe', function(){
 //	id = $(this).attr('id');
