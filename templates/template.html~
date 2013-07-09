@@ -5,7 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/bootstrap.min.css" />
 		<link rel="Stylesheet" type="text/css" href="{{STATIC_URL}}css/core.css" />
 		<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/jquery-ui-1.10.3.custom.min.css" />
-		{% block style%}
+		{% block css %}
 		{% endblock %}
 
 		<script type="text/javascript" src="{{STATIC_URL}}js/jquery-1.9.1.min.js"></script>

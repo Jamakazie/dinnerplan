@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'main',
     'recipes',
     'Calendar',
+    'List',
 )
 
 MIDDLEWARE_CLASSES = (

@@ -12,5 +12,6 @@ urlpatterns = patterns('',
     url(r'^$', include('main.urls')),
     url(r'^recipes/', include('recipes.urls')),
     url(r'^calendar/', include('Calendar.urls')),
+    url(r'^list/', include('List.urls')),
 
 )

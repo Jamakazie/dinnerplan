@@ -1,0 +1,35 @@
+{% extends 'list_template.html' %}
+{% block main %}
+<h1>Add a separate grocery list</h1>
+<legend>List:</legend>
+<form id="list" class="form-horizontal">
+	{% csrf_token %}
+	<h4>Items</h4>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Item</th>
+				<th>Quantity</th>
+			</tr>
+		</thead>
+		<tbody id="add_to_list">
+			{% for list_items in grocerylist%}
+				{% for ingred, quant in list_items.items%}
+				<tr>
+					<td><input type="text" name="list_name" id="list_name" value={{ingred}}/></td>
+					<td><input type="text" name="list_quant" id="list_quant" value={{quant}}/></td>
+					<td><div class="btn list_remove">Remove</div></td>
+				</tr>
+				{% endfor%}
+
+			{% empty%}
+			<tr>
+				<td><input type="text" name="list_name" id="list_name" placeholder="Name"/></td>
+				<td><input type="text" name="list_quant" id="list_quant" placeholder="Amount"/></td>
+				<td><div class="btn list_remove">Remove</div></td>
+			</tr>
+			{% endfor%}
+
+
+{% endblock %}
+
