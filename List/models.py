@@ -1,5 +1,5 @@
 from django.db import models
 
 # Create your models here.
-class list(models.Model):
+class List(models.Model):
 	items = models.TextField()

@@ -7,6 +7,7 @@ from django.http import HttpResponse
 from django.template import RequestContext
 from recipes.models import recipe as r
 from Calendar.models import CalendarObject as c
+from List.models import List as l
 
 # Create your views here.
 def calendar_index(request):
@@ -73,6 +74,9 @@ def calendar_ajax_grocerylist(request):
 			ingredients = json.loads(recipe.ingredients)
 			for ingredient in ingredients:
 				items.append(ingredient)
+		li = json.loads(l.objects.all()[0].items)
+		for item in li:
+			items.append(item)
 		items = process_items(items)
 		items = sorted(items, key=lambda k: k)
 		return HttpResponse(json.dumps(items))

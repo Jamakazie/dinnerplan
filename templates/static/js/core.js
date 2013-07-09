@@ -18,6 +18,53 @@ $(document).on('click', '#recipe_submit', function(){
 		}
 	});
 });
+$(document).on('click', '.list_save', function(){
+	data = $('#list').serialize();
+	$.ajax({
+		url:'/list/commit',
+		data: data,
+		type: 'post',
+		success: function(resp){
+			if(resp== "Success"){
+				alert("Succes");
+			}
+			else{
+				alert("Something fucked up :[");
+			}
+		}
+	});
+
+});
+
+$(document).on('click', '.list_remove', function(){
+	if($('.list_item').length == 1){
+		var rowhtml = $('.list_item :last').clone();
+		$(rowhtml).find('.list_name').val("");
+		$(rowhtml).find('.list_quant').val("");
+		$(this).closest('.list_item').remove();
+		$("#add_to_list").append(rowhtml);
+	}
+	else{
+		$(this).closest('.list_item').remove();
+	}
+});
+
+$(document).on('click', '.list_clear', function(){
+		var rowhtml = $('.list_item :last').clone();
+		$(rowhtml).find('.list_name').val("");
+		$(rowhtml).find('.list_quant').val("");
+		$('.list_item').remove();
+		$("#add_to_list").append(rowhtml);
+});
+
+$(document).on('click', '.list_add', function(){
+	var rowhtml = $('.list_item :last').clone();
+	$(rowhtml).find('.list_name').val("");
+	$(rowhtml).find('.list_quant').val("");
+	$('#add_to_list').append(rowhtml);
+});
+
+
 $(document).on('click', '#recipe_edit', function(){
 	data = $('#edit_recipe').serialize();
 	id = $('#r_id').val()
